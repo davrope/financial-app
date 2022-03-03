@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-const Navbar = () => {
+
+
+const Navbar = ({toggle}) => {
   return (
     <div>Navbar</div>
   )
