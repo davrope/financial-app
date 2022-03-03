@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 
-const Home = () => {
+export const Home = () => {
+
   const [isOpen, setisOpen] = useState(false)
 
   const toggle = ()=>{
@@ -19,4 +20,3 @@ const Home = () => {
   )
 }
 
-export default Home

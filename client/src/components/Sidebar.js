@@ -2,7 +2,7 @@ import React from 'react'
 import {FaTimes} from 'react-icons/fa';
 import {Link as LinkScroll} from 'react-scroll';
 
-const Sidebar = () => {
+const Sidebar = ({isOpen, toggle}) => {
   return (
     <aside isOpen = {isOpen} onClick={toggle}>
       <div className='icon' onClick={toggle}>
