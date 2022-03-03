@@ -1,0 +1,52 @@
+.wrapper.icon{
+    color:white;
+}
+
+.menu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 80px);
+    text-align: center;
+    padding-left: 0%;
+    /* width: 100% */
+    /* object-fit: contain; */
+}
+
+.linkS{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    list-style: none;
+    transition: 0.2s ease-in-out;
+    color: blueviolet;
+    cursor: pointer;
+
+
+}
+
+@media screen and (max-width: 480px){
+    .menu{
+        grid-template-rows: repeat(6, 60px);
+    }
+}
+
+.linkS:hover{
+    color:green;
+    transition: 0.2s ease-in-out;
+}
+
+.closeIcon{
+    color:white
+}
+
+.icon{
+    position: absolute;
+    top:1.2rem;
+    right: 1.5rem;
+    background:transparent;
+    font-size: 2rem;
+    cursor:pointer;
+    outline:none;
+}
