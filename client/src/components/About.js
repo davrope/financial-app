@@ -23,10 +23,10 @@ const About = () => {
           <img src="https://i.postimg.cc/zD21m9fG/hero.png" alt="Pasta with pomodoro sauce" className='about-img'/>
           <div className='text-card-container'>
             <h4>
-              Create a budget
+              Track your expenses
             </h4>
             <p>
-              We have the best tools so you can create a budget based on your income and goals.
+              Split your expenses in different categories so you can notice if you are reaching your financial goals.
             </p>
           </div>
         </div>
@@ -35,10 +35,10 @@ const About = () => {
           <img src="https://i.postimg.cc/zD21m9fG/hero.png" alt="Pasta with pomodoro sauce" className='about-img'/>
           <div className='text-card-container'>
             <h4>
-              Create a budget
+              Export your data
             </h4>
             <p>
-              We have the best tools so you can create a budget based on your income and goals.
+              If you want to use third party tools to analyze your data, you can easily export your information.
             </p>
           </div>
         </div>
