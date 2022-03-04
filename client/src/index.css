@@ -79,3 +79,70 @@ main {
     max-width: 360px;
     max-height: 360px;
 }
+
+/* Login section */
+
+.login-container{
+    padding: 16px;
+    text-align: center;
+    margin-top: 20%;
+    
+}
+
+.login-label{
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+input[type=text], input[type=password] {
+    width: 640px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    
+  }
+
+.login-button{
+    border:none;
+    border-radius: 20px;
+    color:#333;
+    background-color: #fb8c00;
+    font-weight: bold;
+    padding: 12px 24px 12px 24px;
+    margin: 25px 20px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+.remember-checkbox{
+    font-size: 12px;
+
+}
+
+.third-party-login{
+    text-align: center;
+}
+
+.sign-up-link{
+    text-align: center;
+    font-size: 1rem;
+}
+
+@media screen and (max-width:640px){
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        
+      }
+}
+
+.smedia-icon{
+    font-size: 2rem;
+}

@@ -15,12 +15,16 @@ const Navbar = ({toggle}) => {
           <h2>Logo</h2>
         </LinkRouter>
 
+
         <div className={style.mobileIcon} onClick={toggle}>
           <FaBars/>
         </div>
         <ul className={style.navMenu}>
           <li className={style.navItem}>
             <LinkScroll to= 'about' className={style.navLinkS}>About</LinkScroll>
+          </li>
+          <li className={style.navItem}>
+            <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
           </li>
         </ul>
       </nav>
