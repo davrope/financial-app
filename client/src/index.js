@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'
+import './index.css';
+import reducers from './reducers';
 import App from './App';
 
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import reduxThunk from 'redux-thunk';
+import axios from 'axios';
+
+window.axios = axios;
+
+const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(reduxThunk)));
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store} >
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
