@@ -2,8 +2,15 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
-
+const passport = require('passport');
+const { default: mongoose } = require('mongoose');
 const app= express();
+
+require('./models/User');
+require('./services/passport');
+
+mongoose.Promise= global.Promise;
+mongoose.connect(keys.mongoURI,  { useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(bodyParser.json());
 app.use(
@@ -12,6 +19,11 @@ app.use(
         keys: [keys.cookieKey]
     })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === 'production'){
     //Express will serve up production assets
