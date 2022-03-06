@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 const passport = require('passport');
 const { default: mongoose } = require('mongoose');
-const app= express();
+
 
 require('./models/User');
 require('./services/passport');
+
+const app= express();
 
 mongoose.Promise= global.Promise;
 mongoose.connect(keys.mongoURI,  { useNewUrlParser: true, useUnifiedTopology: true});

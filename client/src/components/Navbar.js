@@ -6,7 +6,25 @@ import style from '../styles/navbar.module.css'
 
 
 
-const Navbar = ({toggle}) => {
+const Navbar = ({toggle, auth}) => {
+
+  const renderTest = ({auth})=>{
+    switch({auth}){
+      case false:
+        return(
+          <div>
+            This is the false case
+          </div>
+        );
+      default:
+        return(
+          <div>
+            This is the default case :(
+          </div>
+        )
+    }
+  }
+
   
   return (
     <nav className={style.navMain}>
@@ -25,6 +43,9 @@ const Navbar = ({toggle}) => {
           </li>
           <li className={style.navItem}>
             <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
+          </li>
+          <li>
+            {renderTest({auth})}
           </li>
         </ul>
       </nav>
