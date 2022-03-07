@@ -2,25 +2,36 @@ import React from 'react';
 import {Link as LinkRouter} from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
 import {Link as LinkScroll} from 'react-scroll';
-import style from '../styles/navbar.module.css'
+import style from '../styles/navbar.module.css';
+
+import { useSelector } from 'react-redux';
 
 
 
-const Navbar = ({toggle, auth}) => {
+const Navbar = ({toggle}) => {
 
-  const renderTest = ({auth})=>{
-    switch({auth}){
+  const auth = useSelector((state)=>state.auth)
+  console.log("console from navbar:", auth)
+
+
+  const renderTest = ()=>{
+    switch(auth){
       case false:
         return(
-          <div>
-            This is the false case
-          </div>
+          <li className={style.navItem}>
+            <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
+          </li>
         );
       default:
         return(
           <div>
-            This is the default case :(
-          </div>
+            <li className={style.navItem}>
+                <LinkRouter className={style.navLinkS} to= "/user">User</LinkRouter>  
+            </li>
+            <li className={style.navItem}>
+              <a className={style.navLinkS} href= "/api/logout" key = "signout">Logout</a>  
+            </li>
+        </div>
         )
     }
   }
@@ -41,11 +52,9 @@ const Navbar = ({toggle, auth}) => {
           <li className={style.navItem}>
             <LinkScroll to= 'about' className={style.navLinkS}>About</LinkScroll>
           </li>
-          <li className={style.navItem}>
-            <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
-          </li>
+
           <li>
-            {renderTest({auth})}
+            {renderTest()}
           </li>
         </ul>
       </nav>

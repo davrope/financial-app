@@ -12,6 +12,8 @@ import Login from './components/Login';
 import Landing from './components/Landing';
 
 import { useDispatch } from 'react-redux';
+import UserInfo from './components/UserInfo';
+import Dashboard from './components/FinancialComp/Dashboard';
 
 
 
@@ -32,6 +34,8 @@ const App = () => {
       <Routes>
         <Route path='/' element = {<Landing/>}/>
         <Route path = "login" element = {<Login/>}/>
+        <Route path = '/user' element = {<UserInfo/>}/>
+        <Route path = '/dashboard' element = {<Dashboard/>}/>
       </Routes>
       
     </Router>
