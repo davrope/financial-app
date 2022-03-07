@@ -7,7 +7,8 @@ const budgetSchema = new Schema({
     dateCreated: Date,
     dateFinished: Date,
     category: String,
-    balanceBudget: Number 
+    balanceBudget: Number,
+    _user: {type:Schema.Types.ObjectId, ref: 'User'} 
 });
 
 mongoose.model('budgets', budgetSchema);
