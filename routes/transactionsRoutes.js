@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 // const {text, json} = require('express');
 
-const Transaction = mongoose.model('transaction');
+const Transaction = mongoose.model('transactions');
 
 module.exports = app=>{
     app.post('/api/transactions', requireLogin, (req, res)=>{
