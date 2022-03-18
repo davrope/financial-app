@@ -32,7 +32,7 @@ const Navbar = ({toggle}) => {
         return(
           <ul className={style.navMenu}>
             <li className={style.navItem}>
-                <LinkRouter className={style.navLinkS} to= "/user">User</LinkRouter>  
+                <LinkRouter className={style.navLinkS} to= "/dashboard">User</LinkRouter>  
             </li>
             <li className={style.navItem}>
               <a className={style.navLinkS} href= "/api/logout" key = "signout">Logout</a>  
