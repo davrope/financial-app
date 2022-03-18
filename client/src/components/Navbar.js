@@ -18,20 +18,26 @@ const Navbar = ({toggle}) => {
     switch(auth){
       case false:
         return(
-          <li className={style.navItem}>
-            <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
-          </li>
+          <ul className={style.navMenu}>
+            <li className={style.navItem}>
+              <LinkScroll to= 'about' className={style.navLinkS}>About</LinkScroll>
+            </li>
+            <li className={style.navItem}>
+              <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
+            </li>
+        </ul>
+
         );
       default:
         return(
-          <div>
+          <ul className={style.navMenu}>
             <li className={style.navItem}>
                 <LinkRouter className={style.navLinkS} to= "/user">User</LinkRouter>  
             </li>
             <li className={style.navItem}>
               <a className={style.navLinkS} href= "/api/logout" key = "signout">Logout</a>  
             </li>
-        </div>
+          </ul>
         )
     }
   }
@@ -48,15 +54,11 @@ const Navbar = ({toggle}) => {
         <div className={style.mobileIcon} onClick={toggle}>
           <FaBars/>
         </div>
-        <ul className={style.navMenu}>
-          <li className={style.navItem}>
-            <LinkScroll to= 'about' className={style.navLinkS}>About</LinkScroll>
-          </li>
 
-          <li>
+          
             {renderTest()}
-          </li>
-        </ul>
+          
+        
       </nav>
     </nav>
   )
