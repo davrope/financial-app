@@ -1,19 +1,18 @@
 import React from 'react'
+import {Link as LinkRouter} from 'react-router-dom';
 
 const Dashboard = () => {
+
+
+
   return (
     <div className='dashboard-container'>
       <section className='dashboard-header'>
-        <h3>
-          January
+        <h3 className='current-month'>
+          January, 2022
         </h3>
-
-        <h3>
-          2022
-        </h3>
-
         <h3 className='balance'>
-          Balance: 
+          Your balance: 
         </h3>
 
         <h4 className='balance-number'>
@@ -36,11 +35,10 @@ const Dashboard = () => {
         <button className='button-dashboard'>
           Budgets
         </button>
-
-        <button className='FAB-transaction'>
-          +
-        </button>
       </div>
+      <LinkRouter className='FAB-transaction' to = "/create-transaction">
+          +
+      </LinkRouter>
     </div>
   )
 }

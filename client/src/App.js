@@ -14,6 +14,7 @@ import Landing from './components/Landing';
 import { useDispatch } from 'react-redux';
 import UserInfo from './components/UserInfo';
 import Dashboard from './components/FinancialComp/Dashboard';
+import CreateTransaction from './components/FinancialComp/CreateTransaction';
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
         <Route path = "login" element = {<Login/>}/>
         <Route path = '/user' element = {<UserInfo/>}/>
         <Route path = '/dashboard' element = {<Dashboard/>}/>
+        <Route path = '/create-transaction' element = {<CreateTransaction/>}/>
       </Routes>
       
     </Router>

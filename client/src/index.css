@@ -146,3 +146,50 @@ input[type=text], input[type=password] {
 .smedia-icon{
     font-size: 2rem;
 }
+
+/* Dashboard elements */
+
+.dashboard-container{
+    text-align: center;
+}
+
+.current-month{
+    color: #333;
+}
+
+.balance{
+    color:#333
+}
+
+.dashboard-header{
+    text-align: center;
+    grid-row: auto;
+}
+
+.buttons-dashboard-container{
+    border-radius: 20%;
+    padding: 10px 5px 10px 5px;
+    
+}
+.button-dashboard{
+    font-size: 1.2rem;
+    border-right: black;
+
+}
+
+.FAB-transaction{
+	display: inline-block;
+	width: 42px;
+	height: 42px;
+	line-height: 42px;
+	vertical-align: middle;
+	background: #e53935;
+	border-radius: 50%;
+	border: none;
+	box-shadow: 0 2px 4px rgba(0,0,0,.2);
+	text-align: center;
+    font-size: 2rem;
+    color:white;
+    cursor: pointer
+}
+
