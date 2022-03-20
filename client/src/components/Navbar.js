@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 const Navbar = ({toggle}) => {
 
   const auth = useSelector((state)=>state.auth)
-  console.log("console from navbar:", auth)
+
 
 
   const renderTest = ()=>{

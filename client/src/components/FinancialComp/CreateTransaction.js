@@ -1,7 +1,13 @@
 import React from 'react';
-import style from '../../styles/create-transaction.module.css'
+import style from '../../styles/create-transaction.module.css';
+import {Link as LinkRouter} from 'react-router-dom';
 
 const CreateTransaction = () => {
+  
+  const SubmitTransactionValues= (formValues)=>{
+    console.log(console.log(formValues))
+  }
+
   return (
     <div className={style.container}>
         New transaction
@@ -24,6 +30,15 @@ const CreateTransaction = () => {
             
             {/* Check how to hide the spin arrows for number input */}
             <input type = "number" id= "total_transaction" placeholder='Total'/>
+
+
+            <LinkRouter to = '/user'>
+              Cancel
+            </LinkRouter>
+
+            <button type = "submit" onClick={()=>SubmitTransactionValues(formValues)}>
+              Submit
+            </button>
         </form>
     </div>
   )
