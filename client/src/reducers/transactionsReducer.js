@@ -1,4 +1,4 @@
-import { DELETE_TRANSACTION, FETCH_TRANSACTION, FETCH_TRANSACTIONS } from "../actions/types";
+import { DELETE_TRANSACTION, FETCH_TRANSACTION, FETCH_TRANSACTIONS, SUBMIT_TRANSACTION } from "../actions/types";
 
 const initialState = []
 
@@ -9,6 +9,8 @@ export default function foo(state= initialState, action){
         case FETCH_TRANSACTION:
             return action.payload;
         case DELETE_TRANSACTION:
+            return action.payload;
+        case SUBMIT_TRANSACTION:
             return action.payload;
             default:
                 return {...state} 

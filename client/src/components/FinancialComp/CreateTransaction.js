@@ -12,6 +12,8 @@ const CreateTransaction = () => {
     <div className={style.container}>
         New transaction
         <form>
+            <label>Name: </label>
+            <input type='text'/>
             <label>Type: </label>
             <select id = "type-transaction">
                 <option value = "expenses">Expenses</option>
