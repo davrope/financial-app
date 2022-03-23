@@ -9,12 +9,12 @@ const Transaction = mongoose.model('transactions');
 
 module.exports = app=>{
     app.post('/api/transactions', requireLogin, (req, res)=>{
-        const {title, amount, category, typeTransaction} = req.body;
+        const {title, amount, category, typeTransaction, dateCreated} = req.body;
 
         const transaction = new Transaction({
             title,
             amount,
-            dateCreated : new Date(),
+            dateCreated,
             category,
             typeTransaction,
         })
@@ -23,6 +23,7 @@ module.exports = app=>{
         } catch(err){
             res.status(422).send(err)
         }
+        console.log("Post success!! :)")
     });
 
     app.get('/api/transactions', requireLogin, async (req, res)=>{

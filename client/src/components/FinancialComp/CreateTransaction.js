@@ -1,49 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from '../../styles/create-transaction.module.css';
 import {Link as LinkRouter} from 'react-router-dom';
+import * as actions from '../../actions';
+// import { submitTransaction } from '../../actions';
+
+
 
 const CreateTransaction = () => {
+
+  const [formValues, setformValues] = useState({
+    title: '',
+    amount:0,
+    dateCreated:null,
+    category:null,
+    typeTransaction:null
+  })
+
+  const handleInputChange = (event) =>{
+    setformValues({
+      ...formValues,
+      [event.target.name]: event.target.value
+    })
+  }
   
-  const SubmitTransactionValues= (formValues)=>{
-    console.log(console.log(formValues))
+  
+
+  const handleSubmit= (event)=>{
+    event.preventDefault()
+
+    actions.submitTransaction(formValues)
+
+    console.log(formValues)
   }
 
   return (
     <div className={style.container}>
         New transaction
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Name: </label>
-            <input type='text'/>
+            <input type='text' name = "title" onChange={handleInputChange} />
             <label>Type: </label>
-            <select id = "type-transaction">
+            <select id = "type_transaction" name = "typeTransaction" onChange={handleInputChange}>
                 <option value = "expenses">Expenses</option>
                 <option value = "income">Income</option>
             </select>
 
-            <label>Type:</label>
-            <select id = "category">
+            <label>Category:</label>
+            <select id = "category" name = "category" onChange={handleInputChange}>
                 <option value = "home">Home</option>
                 <option value = "food">Food</option>
                 <option value = "laundry">Laundry</option>
             </select>
 
             <label>Date</label>
-            <input type = "date" id = "transaction_date"/>
+            <input type = "date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
             
             {/* Check how to hide the spin arrows for number input */}
-            <input type = "number" id= "total_transaction" placeholder='Total'/>
+            <input type = "number" id= "total_transaction" placeholder='Total' name='amount' onChange={handleInputChange}/>
 
 
             <LinkRouter to = '/user'>
               Cancel
             </LinkRouter>
 
-            <button type = "submit" onClick={()=>SubmitTransactionValues(formValues)}>
+            <button type = "submit">
               Submit
             </button>
         </form>
     </div>
   )
 }
+
 
 export default CreateTransaction

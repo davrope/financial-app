@@ -7,7 +7,9 @@ const { default: mongoose } = require('mongoose');
 
 
 require('./models/User');
+require('./models/Transactions')
 require('./services/passport');
+
 
 const app= express();
 
@@ -26,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/transactionsRoutes')(app)
 
 if (process.env.NODE_ENV === 'production'){
     //Express will serve up production assets
