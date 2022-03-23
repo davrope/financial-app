@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link as LinkRouter} from 'react-router-dom';
+import TransactionsTable from './TransactionsTable';
 
 const Dashboard = () => {
 
@@ -25,7 +26,7 @@ const Dashboard = () => {
       </section>
 
       <section className='dashboard-table'>
-        This is the dashboard table
+        <TransactionsTable/>
       </section>
 
       <div className='buttons-dashboard-container'>

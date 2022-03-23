@@ -13,6 +13,6 @@ export default function foo(state= initialState, action){
         case SUBMIT_TRANSACTION:
             return action.payload;
             default:
-                return {...state} 
+                return [...state]
     }
 }

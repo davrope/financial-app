@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_TRANSACTION, FETCH_USER} from './types'
+import {FETCH_TRANSACTION, FETCH_USER, FETCH_TRANSACTIONS} from './types'
 
 export const fetchUser = ()=> async dispatch=>{
     const res = await axios.get('/api/current_user');
@@ -8,13 +8,16 @@ export const fetchUser = ()=> async dispatch=>{
     dispatch({type: FETCH_USER, payload: res.data});
 };
 
-export const testingFunc = ()=>{
-    console.log("You called this action function")
-}
 
 export const submitTransaction = (values) => async dispatch=>{
     const res = await axios.post('/api/transactions', values);
     console.log(res)
 
     dispatch({type: FETCH_TRANSACTION, payload: res.data});
+}
+
+export const fetchTransactions = ()=> async dispatch=>{
+    const res = await axios.get('/api/transactions');
+
+    dispatch({type: FETCH_TRANSACTIONS, payload: res.data})
 }

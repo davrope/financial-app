@@ -17,6 +17,7 @@ module.exports = app=>{
             dateCreated,
             category,
             typeTransaction,
+            _user: req.user.id
         })
         try{
             transaction.save();
