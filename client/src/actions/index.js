@@ -14,6 +14,7 @@ export const testingFunc = ()=>{
 
 export const submitTransaction = (values) => async dispatch=>{
     const res = await axios.post('/api/transactions', values);
+    console.log(res)
 
     dispatch({type: FETCH_TRANSACTION, payload: res.data});
 }

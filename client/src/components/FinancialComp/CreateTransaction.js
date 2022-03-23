@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import style from '../../styles/create-transaction.module.css';
 import {Link as LinkRouter} from 'react-router-dom';
 import * as actions from '../../actions';
+import { useDispatch } from 'react-redux';
 // import { submitTransaction } from '../../actions';
 
 
 
 const CreateTransaction = () => {
+  const dispatch = useDispatch();
 
   const [formValues, setformValues] = useState({
     title: '',
     amount:0,
     dateCreated:null,
-    category:null,
-    typeTransaction:null
+    category:'Home',
+    typeTransaction:'Expenses'
   })
 
   const handleInputChange = (event) =>{
@@ -28,7 +30,7 @@ const CreateTransaction = () => {
   const handleSubmit= (event)=>{
     event.preventDefault()
 
-    actions.submitTransaction(formValues)
+    dispatch(actions.submitTransaction(formValues))
 
     console.log(formValues)
   }
