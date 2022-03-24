@@ -51,9 +51,9 @@ const CreateTransaction = () => {
 
             <label>Category:</label>
             <select id = "category" name = "category" onChange={handleInputChange}>
-                <option value = "home">Home</option>
-                <option value = "food">Food</option>
-                <option value = "laundry">Laundry</option>
+                <option value = "Home">Home</option>
+                <option value = "Food">Food</option>
+                <option value = "Laundry">Laundry</option>
             </select>
 
             <label>Date</label>

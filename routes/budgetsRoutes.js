@@ -5,7 +5,7 @@ const Budget = mongoose.model('budgets');
 
 module.exports = app=>{
     app.post('/api/budgets', requireLogin, (req, res)=>{
-        const {title, amount, dateFinished, category} = req.body;
+        const {title, amount, dateCreated, dateFinished, category} = req.body;
 
         const budget = new Budget({
             title,

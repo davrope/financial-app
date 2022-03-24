@@ -11,6 +11,6 @@ export default function foo(state= initialState, action){
         case DELETE_BUDGET:
             return action.payload;
             default:
-                return {...state} 
+                return [...state] 
     }
 }

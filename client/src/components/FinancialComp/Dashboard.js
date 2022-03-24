@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link as LinkRouter} from 'react-router-dom';
 import TransactionsTable from './TransactionsTable';
 
@@ -8,13 +8,35 @@ import { connect, useSelector } from 'react-redux';
 
 const Dashboard = () => {
 
-  const transactions = useSelector((state)=>state.transactions)
+  const [view, setView] = useState('transaction')
+  console.log(view)
+
+  const handleBudget=()=>{
+    setView('budget')
+  }
+
+  const handleTransactions = ()=>{
+    setView('transaction')
+  }
+
+  const renderTable = ()=>{
+    switch(view){
+      case 'budget':
+        return(
+          <div>
+            Budgets from switch
+          </div>
+        )
+      default:
+        return(
+          <TransactionsTable/>
+        )
+    }
+
+  }
+
 
   
-
-  const balance = ()=>{
-    console.log(transactions)
-  }
 
 
 
@@ -32,6 +54,7 @@ const Dashboard = () => {
         <h4 className='balance-number'>
           $2,000.12
         </h4>
+        
       </section>
 
       <section className='dashboard-plot'>
@@ -39,18 +62,18 @@ const Dashboard = () => {
       </section>
 
       <section className='dashboard-table'>
-        <TransactionsTable/>
+        {renderTable()}
       </section>
 
       <div className='buttons-dashboard-container'>
-        <button className='button-dashboard'>
-          Expenses
+        <button className='button-dashboard'onClick={handleTransactions} >
+          Transactions
         </button>
-        <button className='button-dashboard'>
+        <button className='button-dashboard' onClick={handleBudget}>
           Budgets
         </button>
       </div>
-      <LinkRouter className='FAB-transaction' to = "/create-transaction">
+      <LinkRouter className='FAB-transaction' to = {"/create-" + view}>
           +
       </LinkRouter>
     </div>
