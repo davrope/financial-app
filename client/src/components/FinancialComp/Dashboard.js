@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link as LinkRouter} from 'react-router-dom';
 import TransactionsTable from './TransactionsTable';
 
-const Dashboard = () => {
+import {fetchTransactions } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
+const Dashboard = () => {
 
 
   return (

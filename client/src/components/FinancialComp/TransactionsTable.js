@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import {fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
 
+
 const TransactionsTable = () => {
     const dispatch = useDispatch();
 
@@ -15,24 +16,14 @@ const TransactionsTable = () => {
 
     
     const transactions = useSelector((state)=>state.transactions)
-    // const transactions = useSelector((state)=>state.transactions)
-    
-    // console.log(transactions)
-    // console.log(typeof(transactions))
-    // console.log(transactions.map(element=>element.title))
-
-    
-    
 
     const RenderTransactions = ()=>{
 
         try{
-            transactions.map(element=>{
+            return transactions.map(element=>{
                 console.log(element)
-                // console.log(element)
                 return(
-                    
-                        <tr>
+                        <tr key={element.id}>
                             <td>{element.title} </td>
                             <td>{element.amount} </td>
                             <td>{element.dateCreated} </td>
@@ -53,13 +44,14 @@ const TransactionsTable = () => {
         <h2>Table title</h2>
         <table>
             <tbody>
-                <tr>
+                <tr key = "headers_expenses">
                     <th>Transaction</th>
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Category</th>
                 </tr>
                 {RenderTransactions()}
+                
             </tbody>
                 
             
