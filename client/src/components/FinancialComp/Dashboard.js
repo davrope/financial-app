@@ -5,6 +5,7 @@ import TransactionsTable from './TransactionsTable';
 import {fetchTransactions } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { connect, useSelector } from 'react-redux';
+import BudgetsTable from './BudgetsTable';
 
 const Dashboard = () => {
 
@@ -23,9 +24,7 @@ const Dashboard = () => {
     switch(view){
       case 'budget':
         return(
-          <div>
-            Budgets from switch
-          </div>
+          <BudgetsTable/>
         )
       default:
         return(
