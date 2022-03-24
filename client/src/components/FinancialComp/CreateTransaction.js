@@ -4,11 +4,12 @@ import {Link as LinkRouter} from 'react-router-dom';
 import * as actions from '../../actions';
 import { useDispatch } from 'react-redux';
 // import { submitTransaction } from '../../actions';
-
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateTransaction = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formValues, setformValues] = useState({
     title: '',
@@ -32,7 +33,8 @@ const CreateTransaction = () => {
 
     dispatch(actions.submitTransaction(formValues))
 
-    console.log(formValues)
+
+    navigate('/dashboard')
   }
 
   return (

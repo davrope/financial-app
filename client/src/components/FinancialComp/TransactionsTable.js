@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
+import style from '../../styles/table.module.css'
 
 
 const TransactionsTable = () => {
@@ -26,7 +27,7 @@ const TransactionsTable = () => {
                         <tr key={element.id}>
                             <td>{element.title} </td>
                             <td>{element.amount} </td>
-                            <td>{element.dateCreated} </td>
+                            <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
                             <td>{element.category} </td>
                         </tr>
                     
@@ -42,7 +43,7 @@ const TransactionsTable = () => {
   return (
     <div>
         <h2>Table title</h2>
-        <table>
+        <table className= {style.transactionTable}>
             <tbody>
                 <tr key = "headers_expenses">
                     <th>Transaction</th>

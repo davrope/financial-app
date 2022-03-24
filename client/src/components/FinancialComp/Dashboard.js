@@ -8,6 +8,16 @@ import { connect, useSelector } from 'react-redux';
 
 const Dashboard = () => {
 
+  const transactions = useSelector((state)=>state.transactions)
+
+  
+
+  const balance = ()=>{
+    console.log(transactions)
+  }
+
+
+
 
   return (
     <div className='dashboard-container'>
