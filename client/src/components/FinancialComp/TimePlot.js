@@ -17,13 +17,10 @@ const TimePlot = () => {
 
     rObj["x"] = new Date(obj.dateCreated).toLocaleDateString();
     rObj["y"] = balance;
-    
-    console.log(balance)
+
     return rObj
   })
  
-
-  console.log(data)
 
 
   return (

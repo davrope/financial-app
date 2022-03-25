@@ -16,7 +16,7 @@ const CreateTransaction = () => {
     amount:0,
     dateCreated:null,
     category:'Home',
-    typeTransaction:'Expenses'
+    typeTransaction:'expenses'
   })
 
   const handleInputChange = (event) =>{
@@ -25,11 +25,33 @@ const CreateTransaction = () => {
       [event.target.name]: event.target.value
     })
   }
-  
+
+  const handleInputType = (event)=>{
+
+    switch(formValues.typeTransaction == "expenses"){
+      case true:
+        
+        setformValues({
+          ...formValues,
+          [event.target.name]: event.target.value*-1
+        })
+        break
+        
+      case false:
+        setformValues({
+          ...formValues,
+          [event.target.name]: event.target.value
+        })
+        
+    }
+  }
+
+
   
 
   const handleSubmit= (event)=>{
     event.preventDefault()
+    
 
     dispatch(actions.submitTransaction(formValues))
 
@@ -60,7 +82,7 @@ const CreateTransaction = () => {
             <input type = "date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
             
             {/* Check how to hide the spin arrows for number input */}
-            <input type = "number" id= "total_transaction" placeholder='Total' name='amount' onChange={handleInputChange}/>
+            <input type = "number" id= "total_transaction" placeholder='Total' name='amount' onChange={handleInputType}/>
 
 
             <LinkRouter to = '/user'>

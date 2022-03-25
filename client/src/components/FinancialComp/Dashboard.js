@@ -34,6 +34,17 @@ const Dashboard = () => {
     }
   }
 
+ 
+  const operator_amount = transactions.map(function(obj){
+    if (obj.typeTransaction == 'expenses'){
+      return(obj.amount*-1)
+    }else{
+      return obj
+    }
+  })
+
+  console.log(operator_amount)
+
   const current_amount = transactions.map(function(obj){
     return obj.amount
   })
