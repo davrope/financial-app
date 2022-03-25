@@ -149,6 +149,13 @@ input[type=text], input[type=password] {
 
 /* Dashboard elements */
 
+.dashboard-plot{
+    max-width: 50%;
+    max-height: 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .dashboard-container{
     text-align: center;
 }

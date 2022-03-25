@@ -22,7 +22,7 @@ const TransactionsTable = () => {
 
         try{
             return transactions.map(element=>{
-                console.log(element)
+                
                 return(
                         <tr key={element.id}>
                             <td>{element.title} </td>
@@ -42,7 +42,7 @@ const TransactionsTable = () => {
 
   return (
     <div>
-        <h2>Table title</h2>
+        <h2>Transactions</h2>
         <table className= {style.transactionTable}>
             <tbody>
                 <tr key = "headers_expenses">

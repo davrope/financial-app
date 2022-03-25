@@ -6,16 +6,17 @@ import {fetchTransactions } from '../../actions';
 import { useDispatch } from 'react-redux';
 import { connect, useSelector } from 'react-redux';
 import BudgetsTable from './BudgetsTable';
+import TimePlot from './TimePlot';
 
 const Dashboard = () => {
 
   const [view, setView] = useState('transaction')
-  console.log(view)
+  const transactions = useSelector((state)=>state.transactions)
+  
 
   const handleBudget=()=>{
     setView('budget')
   }
-
   const handleTransactions = ()=>{
     setView('transaction')
   }
@@ -31,8 +32,18 @@ const Dashboard = () => {
           <TransactionsTable/>
         )
     }
-
   }
+
+  const current_amount = transactions.map(function(obj){
+    return obj.amount
+  })
+
+  const initial_amount = 0;
+  const sumWithInitial = current_amount.reduce(
+    (previousValue, currentValue)=>previousValue+currentValue,
+    initial_amount
+  )
+  
 
 
   
@@ -51,13 +62,13 @@ const Dashboard = () => {
         </h3>
 
         <h4 className='balance-number'>
-          $2,000.12
+          {"$" +sumWithInitial}
         </h4>
         
       </section>
 
       <section className='dashboard-plot'>
-        This is where the general plot of the last 30 days is happening
+        <TimePlot/>
       </section>
 
       <section className='dashboard-table'>
