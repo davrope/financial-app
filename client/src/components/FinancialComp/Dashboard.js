@@ -2,9 +2,9 @@ import React, {useEffect, useState} from 'react'
 import {Link as LinkRouter} from 'react-router-dom';
 import TransactionsTable from './TransactionsTable';
 
-import {fetchTransactions } from '../../actions';
-import { useDispatch } from 'react-redux';
-import { connect, useSelector } from 'react-redux';
+// import {fetchTransactions } from '../../actions';
+// import { useDispatch } from 'react-redux';
+import {useSelector } from 'react-redux';
 import BudgetsTable from './BudgetsTable';
 import TimePlot from './TimePlot';
 
@@ -12,6 +12,11 @@ const Dashboard = () => {
 
   const [view, setView] = useState('transaction')
   const transactions = useSelector((state)=>state.transactions)
+
+  // Display header with current date
+  const today = new Date();
+  const current_month = today.toLocaleString('default', {month:'long'})
+  const date = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+today.getFullYear()
   
 
   const handleBudget=()=>{
@@ -43,7 +48,7 @@ const Dashboard = () => {
     }
   })
 
-  console.log(operator_amount)
+  
 
   const current_amount = transactions.map(function(obj){
     return obj.amount
@@ -66,7 +71,7 @@ const Dashboard = () => {
     <div className='dashboard-container'>
       <section className='dashboard-header'>
         <h3 className='current-month'>
-          January, 2022
+          {date}
         </h3>
         <h3 className='balance'>
           Your balance: 
