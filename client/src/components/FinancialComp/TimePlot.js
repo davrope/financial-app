@@ -6,10 +6,19 @@ import { useSelector } from 'react-redux';
 const TimePlot = () => {
   const transactions = useSelector((state)=>state.transactions)
 
+  transactions.sort((a,b)=>new Date(a.dateCreated).getTime()- new Date(b.dateCreated).getTime());
+  
+  let balance = 0
   const data = transactions.map(function(obj){
     let rObj = {};
+    balance = obj.amount+balance;
+    
+
+
     rObj["x"] = new Date(obj.dateCreated).toLocaleDateString();
-    rObj["y"] = obj.amount;
+    rObj["y"] = balance;
+    
+    console.log(balance)
     return rObj
   })
  
