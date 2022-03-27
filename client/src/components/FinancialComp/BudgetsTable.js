@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux';
 import {fetchBudgets } from '../../actions';
 import { connect, useSelector } from 'react-redux';
 import styles from '../../styles/budgetCards.module.css'
 
 const BudgetsTable = () => {
+
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -19,7 +20,9 @@ const BudgetsTable = () => {
 
     const fetchBudgetTransactions = (budget)=>{
         const budget_transactions = transactions.filter(obj=>obj.category ==budget.category)
-        return budget_transactions
+        const budget_transactions_bydate = budget_transactions.filter(obj=>new Date (budget.dateCreated)<= new Date(obj.dateCreated) <= new Date(budget.dateFinished))
+
+        return  budget_transactions_bydate
     }
 
     const renderBudgetsCards = ()=>{
@@ -45,7 +48,7 @@ const BudgetsTable = () => {
                                     {element.title}
                                 </h2>
                                 <p>
-                                    Period: {new Date(element.dateFinished).toLocaleDateString() } - {new Date(element.dateCreated).toLocaleDateString() }
+                                    Period: {new Date(element.dateCreated).toLocaleDateString() } - {new Date(element.dateFinished).toLocaleDateString() }
                                 </p>
                             </div>
 
@@ -68,39 +71,10 @@ const BudgetsTable = () => {
         }
     }
 
-    // const RenderBudgets = ()=>{
-    //     try{
-    //         return budgets.map(element=>{
-    //             return(
-    //                 <tr key={element.id}>
-    //                     <td>{element.title}</td>
-    //                     <td>{element.amount} </td>
-    //                     <td>{new Date(element.dateCreated).toLocaleDateString() } </td>
-    //                     <td>{new Date(element.dateFinished).toLocaleDateString() } </td>
-    //                     <td>{element.category} </td>
-    //                 </tr>
-    //             )
-    //         })
-    //     }catch(error){
-    //         console.log(error)
-    //     }
-    // }
     
   return (
     <div>
         <h2>Budgets</h2>
-        {/* <table>
-            <tbody>
-                <tr key = "headers_budgets">
-                    <th>Budget name</th>
-                    <th>Amount</th>
-                    <th>Date start</th>
-                    <th>Date end</th>
-                    <th>Category</th>
-                </tr>
-                {RenderBudgets()}
-            </tbody>
-        </table> */}
         {renderBudgetsCards()}
     </div>
   )
