@@ -15,10 +15,28 @@ const BudgetsTable = () => {
     }, [])
 
     const budgets = useSelector((state)=>state.budgets)
+    const transactions = useSelector((state)=>state.transactions);
+
+    const fetchBudgetTransactions = (budget)=>{
+        const budget_transactions = transactions.filter(obj=>obj.category ==budget.category)
+        return budget_transactions
+    }
 
     const renderBudgetsCards = ()=>{
+        
         try{
             return budgets.map(element=>{
+                const budget_transactions_arr = fetchBudgetTransactions(element);
+                const budget_amount_arr = budget_transactions_arr.map(function(obj){
+                    return obj.amount
+                  })
+                const initial_amount = 0;
+                const sumWithInitial = budget_amount_arr.reduce(
+                (previousValue, currentValue)=>previousValue+currentValue,
+                initial_amount
+                )
+
+                
                 return(
                     <div className={styles.card_horizontal} >
                         <div className={styles.top_container}>
@@ -32,7 +50,7 @@ const BudgetsTable = () => {
                             </div>
 
                             <h3 className={styles.budget_balance} >
-                                543/{element.amount}
+                               {sumWithInitial} /{element.amount}
                             </h3>
                         </div>
 

@@ -14,7 +14,7 @@ const CreateBudget = () => {
     amount: 0,
     dateCreated: null,
     dateFinished: null,
-    category: null,
+    category: 'Home',
     
   })
 
