@@ -25,6 +25,30 @@ const CreateTransaction = () => {
       [event.target.name]: event.target.value
     })
   }
+  console.log(formValues)
+  
+  const categoriesOptions = ()=>{
+    switch(formValues.typeTransaction){
+      case 'expenses':
+        return(
+          <>
+            <option value="Home">Home</option>
+            <option value="Food">Food</option>
+            <option value="Laundry">Laundry</option>
+          </>
+        )
+        
+      case 'income':
+        return(
+          <>
+            <option value="Salary">Salary</option>
+            <option value="Investments">Investments</option>
+            <option value="Freelancing">Freelancing</option>
+          </>
+        )    
+    }
+
+  }
 
   const handleInputType = (event)=>{
 
@@ -73,9 +97,7 @@ const CreateTransaction = () => {
 
             <label>Category:</label>
             <select id = "category" name = "category" onChange={handleInputChange}>
-                <option value = "Home">Home</option>
-                <option value = "Food">Food</option>
-                <option value = "Laundry">Laundry</option>
+                {categoriesOptions()}
             </select>
 
             <label>Date</label>
