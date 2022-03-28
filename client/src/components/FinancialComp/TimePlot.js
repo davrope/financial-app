@@ -10,8 +10,23 @@ const TimePlot = (props) => {
   const transactions_bydate = transactions.filter(obj=>new Date(obj.dateCreated).getMonth() == month)
 
   transactions_bydate.sort((a,b)=>new Date(a.dateCreated).getTime()- new Date(b.dateCreated).getTime());
+
+  function currentBalance(){
+    const prev_transactions = transactions.filter(obj=>new Date(obj.dateCreated).getMonth()<month)
+    const current_amount = prev_transactions.map(function(obj){
+      return obj.amount
+    })
   
-  let balance = 0
+    const initial_amount = 0;
+    const sumWithInitial = current_amount.reduce(
+      (previousValue, currentValue)=>previousValue+currentValue,
+      initial_amount
+    )
+
+    return sumWithInitial
+  }
+  
+  let balance = currentBalance()
   const data = transactions_bydate.map(function(obj){
     let rObj = {};
     balance = obj.amount+balance;
