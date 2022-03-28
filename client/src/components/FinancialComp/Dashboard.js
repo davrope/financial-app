@@ -9,16 +9,28 @@ import BudgetsTable from './BudgetsTable';
 import TimePlot from './TimePlot';
 
 const Dashboard = () => {
+  const [dashboardDate, setDashboardDate] = useState(new Date())
 
   const [view, setView] = useState('transaction')
   const transactions = useSelector((state)=>state.transactions)
 
-  // Display header with current date
-  const today = new Date();
-  const current_month = today.toLocaleString('default', {month:'long'})
-  const date = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+today.getFullYear()
-  
 
+  const current_month = dashboardDate.toLocaleDateString('default', {month: 'long'})
+  const display_month = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+dashboardDate.getFullYear()
+
+  
+  const handleMonth =(button)=>{
+
+    switch(button.target.id){
+      case "previousMonth":
+        setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
+        console.log(dashboardDate)
+        break
+      case "nextMonth":
+        setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
+        console.log(dashboardDate)
+    }
+  }
   const handleBudget=()=>{
     setView('budget')
   }
@@ -30,11 +42,11 @@ const Dashboard = () => {
     switch(view){
       case 'budget':
         return(
-          <BudgetsTable/>
+          <BudgetsTable selectedDate ={dashboardDate} />
         )
       default:
         return(
-          <TransactionsTable/>
+          <TransactionsTable selectedDate ={dashboardDate}/>
         )
     }
   }
@@ -61,7 +73,9 @@ const Dashboard = () => {
     <div className='dashboard-container'>
       <section className='dashboard-header'>
         <h3 className='current-month'>
-          {date}
+          <button type='button' id = "previousMonth" onClick={handleMonth}>Prev</button>
+          {display_month}
+          <button type='button' id = "nextMonth" onClick={handleMonth}>Next</button>
         </h3>
         <h3 className='balance'>
           Your balance: 
@@ -74,7 +88,7 @@ const Dashboard = () => {
       </section>
 
       <section className='dashboard-plot'>
-        <TimePlot/>
+        <TimePlot selectedDate ={dashboardDate}/>
       </section>
 
       <section className='dashboard-table'>

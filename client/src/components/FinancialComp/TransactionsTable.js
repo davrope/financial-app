@@ -5,7 +5,10 @@ import { connect, useSelector } from 'react-redux';
 import style from '../../styles/table.module.css'
 
 
-const TransactionsTable = () => {
+const TransactionsTable = (props) => {
+
+    const month = props.selectedDate.getMonth()
+
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -18,10 +21,14 @@ const TransactionsTable = () => {
     
     const transactions = useSelector((state)=>state.transactions)
 
+    
+    const transactions_bydate = transactions.filter(obj=>new Date(obj.dateCreated).getMonth() == month)
+    
+
     const RenderTransactions = ()=>{
 
         try{
-            return transactions.map(element=>{
+            return transactions_bydate.map(element=>{
                 
                 return(
                         <tr key={element.id}>

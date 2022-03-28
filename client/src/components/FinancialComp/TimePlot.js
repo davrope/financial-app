@@ -3,13 +3,16 @@ import {VictoryChart, VictoryArea} from 'victory'
 import { useSelector } from 'react-redux';
 
 
-const TimePlot = () => {
+const TimePlot = (props) => {
   const transactions = useSelector((state)=>state.transactions)
+  const month = props.selectedDate.getMonth()
 
-  transactions.sort((a,b)=>new Date(a.dateCreated).getTime()- new Date(b.dateCreated).getTime());
+  const transactions_bydate = transactions.filter(obj=>new Date(obj.dateCreated).getMonth() == month)
+
+  transactions_bydate.sort((a,b)=>new Date(a.dateCreated).getTime()- new Date(b.dateCreated).getTime());
   
   let balance = 0
-  const data = transactions.map(function(obj){
+  const data = transactions_bydate.map(function(obj){
     let rObj = {};
     balance = obj.amount+balance;
     
