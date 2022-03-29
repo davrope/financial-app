@@ -25,6 +25,7 @@ const BudgetsTable = () => {
         return  budget_transactions_bydate
     }
 
+
     const renderBudgetsCards = ()=>{
         
         try{
@@ -39,6 +40,16 @@ const BudgetsTable = () => {
                 initial_amount
                 )
 
+                let percentage = (sumWithInitial/element.amount)*100
+
+                const percentage_choice = ()=>{
+                    if(percentage>100){
+                        return "100%"
+                    } else{
+                        return percentage+"%"
+                    }
+                }
+               
                 
                 return(
                     <div className={styles.card_horizontal} >
@@ -59,8 +70,10 @@ const BudgetsTable = () => {
 
                         <div className={styles.bottom_container} >
                             <p>You can spend X per day</p>
-                            <div>
-                                Progress bar
+                            <div className='progress'>
+                                <div className='progress-bar' role= 'progressbar' style={{width: percentage_choice(), ariaValuenow: "25"}}>
+                                    {percentage_choice()}
+                                </div>
                             </div>
                         </div>
                     </div>

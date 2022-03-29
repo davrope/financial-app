@@ -195,7 +195,8 @@ input[type=text], input[type=password] {
 	border: none;
 	box-shadow: 0 2px 4px rgba(0,0,0,.2);
 	text-align: center;
-    font-size: 2rem;
+    justify-items: center;
+    font-size: 2.5rem;
     color:white;
     cursor: pointer
 }

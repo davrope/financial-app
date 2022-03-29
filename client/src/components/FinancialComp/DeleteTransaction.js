@@ -4,10 +4,10 @@ import Modal from '../Modal'
 import { deleteTransaction } from '../../actions'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+
 
 const DeleteTransaction = () => {
-    const transactions = useSelector((state)=>state.transactions)
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

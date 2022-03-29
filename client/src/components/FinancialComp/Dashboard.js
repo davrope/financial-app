@@ -7,6 +7,7 @@ import TransactionsTable from './TransactionsTable';
 import {useSelector } from 'react-redux';
 import BudgetsTable from './BudgetsTable';
 import TimePlot from './TimePlot';
+import {IoMdArrowDropleft,IoMdArrowDropright, IoIosAdd } from 'react-icons/io'
 
 const Dashboard = () => {
   const [dashboardDate, setDashboardDate] = useState(new Date())
@@ -24,10 +25,12 @@ const Dashboard = () => {
     switch(button.target.id){
       case "previousMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
+        console.log("left")
         
         break
       case "nextMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
+        console.log("right")
         
     }
   }
@@ -73,9 +76,9 @@ const Dashboard = () => {
     <div className='dashboard-container'>
       <section className='dashboard-header'>
         <h3 className='current-month'>
-          <button type='button' id = "previousMonth" onClick={handleMonth}>Prev</button>
+          <IoMdArrowDropleft type='button' id = "previousMonth" onClick={handleMonth}/>
           {display_month}
-          <button type='button' id = "nextMonth" onClick={handleMonth}>Next</button>
+          <IoMdArrowDropright type='button' id = "nextMonth" onClick={handleMonth}/>
         </h3>
         <h3 className='balance'>
           Your balance: 
@@ -104,7 +107,7 @@ const Dashboard = () => {
         </button>
       </div>
       <LinkRouter className='FAB-transaction' to = {"/create-" + view}>
-          +
+          <IoIosAdd/>
       </LinkRouter>
     </div>
   )

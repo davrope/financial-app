@@ -4,6 +4,8 @@ import {deleteTransaction, fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom'
 import style from '../../styles/table.module.css'
+import {ImCross} from 'react-icons/im'
+
 
 
 const TransactionsTable = (props) => {
@@ -49,7 +51,7 @@ const TransactionsTable = (props) => {
                             <Link
                                 to={`/transactions/delete/${element._id}`}
                             >
-                                Borrar
+                                <ImCross/>
                             </Link>
                             
                         </tr> 
