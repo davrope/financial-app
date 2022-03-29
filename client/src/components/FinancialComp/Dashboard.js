@@ -24,11 +24,11 @@ const Dashboard = () => {
     switch(button.target.id){
       case "previousMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
-        console.log(dashboardDate)
+        
         break
       case "nextMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
-        console.log(dashboardDate)
+        
     }
   }
   const handleBudget=()=>{

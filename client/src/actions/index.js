@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_TRANSACTION, FETCH_USER, FETCH_TRANSACTIONS, FETCH_BUDGETS} from './types'
+import {FETCH_TRANSACTION, FETCH_USER, FETCH_TRANSACTIONS, FETCH_BUDGETS, DELETE_TRANSACTION} from './types'
 
 
 export const fetchUser = ()=> async dispatch=>{
@@ -20,6 +20,13 @@ export const fetchTransactions = ()=> async dispatch=>{
 
     dispatch({type: FETCH_TRANSACTIONS, payload: res.data})
 }
+
+export const deleteTransaction = id => async dispatch=>{
+    await axios.delete(`/api/transactions/${id}`);
+
+    dispatch({type:DELETE_TRANSACTION, payload:id})
+}
+
 
 // Budgets actions
 

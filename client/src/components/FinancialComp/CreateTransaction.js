@@ -25,7 +25,7 @@ const CreateTransaction = () => {
       [event.target.name]: event.target.value
     })
   }
-  console.log(formValues)
+  
   
   const categoriesOptions = ()=>{
     switch(formValues.typeTransaction){

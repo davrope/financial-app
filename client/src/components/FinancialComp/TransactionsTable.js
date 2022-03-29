@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import {fetchTransactions } from '../../actions';
+import {deleteTransaction, fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
+import {Link, useNavigate} from 'react-router-dom'
 import style from '../../styles/table.module.css'
 
 
 const TransactionsTable = (props) => {
 
     const month = props.selectedDate.getMonth()
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -17,6 +19,12 @@ const TransactionsTable = (props) => {
         
         
     }, [])
+
+    // function handleDelete(element){
+    //     // dispatch(deleteTransaction(element._id))
+    //     // navigate('/dashboard')
+    //     console.log(element._id)
+    // }
 
     
     const transactions = useSelector((state)=>state.transactions)
@@ -31,14 +39,22 @@ const TransactionsTable = (props) => {
             return transactions_bydate.map(element=>{
                 
                 return(
-                        <tr key={element.id}>
+                    <>
+                        <tr key={element._id}>
                             <td>{element.title} </td>
                             <td>{element.amount} </td>
                             <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
                             <td>{element.category} </td>
-                        </tr>
-                    
-
+                            {/* <button on onClick={handleDelete(element)}>Borrar</button> */}
+                            <Link
+                                to={`/transactions/delete/${element._id}`}
+                            >
+                                Borrar
+                            </Link>
+                            
+                        </tr> 
+                        
+                    </>
                 )
             })
         }catch(error){

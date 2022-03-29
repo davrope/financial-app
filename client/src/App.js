@@ -16,6 +16,7 @@ import UserInfo from './components/UserInfo';
 import Dashboard from './components/FinancialComp/Dashboard';
 import CreateTransaction from './components/FinancialComp/CreateTransaction';
 import CreateBudget from './components/FinancialComp/CreateBudget';
+import DeleteTransaction from './components/FinancialComp/DeleteTransaction';
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
         <Route path = '/dashboard' element = {<Dashboard/>}/>
         <Route path = '/create-transaction' element = {<CreateTransaction/>}/>
         <Route path = '/create-budget' element = {<CreateBudget/>}/>
+        <Route path = '/transactions/delete/:id' element = {<DeleteTransaction/>}/>
       </Routes>
       
     </Router>
