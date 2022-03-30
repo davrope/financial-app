@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux';
 import {fetchBudgets } from '../../actions';
-import { connect, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import styles from '../../styles/budgetCards.module.css'
 
 const BudgetsTable = () => {
@@ -20,10 +20,12 @@ const BudgetsTable = () => {
 
     const fetchBudgetTransactions = (budget)=>{
         const budget_transactions = transactions.filter(obj=>obj.category ==budget.category)
-        const budget_transactions_bydate = budget_transactions.filter(obj=>new Date (budget.dateCreated)<= new Date(obj.dateCreated) <= new Date(budget.dateFinished))
-
+        const budget_transactions_bydate= 
+            budget_transactions.filter(obj=> ((new Date(budget.dateCreated)<= new Date(obj.dateCreated))&& (new Date (obj.dateFinished<= new Date(budget.dateFinished)))))
+        
         return  budget_transactions_bydate
     }
+    
 
 
     const renderBudgetsCards = ()=>{
@@ -35,7 +37,7 @@ const BudgetsTable = () => {
                     return obj.amount
                   })
                 const initial_amount = 0;
-                const sumWithInitial = budget_amount_arr.reduce(
+                const sumWithInitial = -1*budget_amount_arr.reduce(
                 (previousValue, currentValue)=>previousValue+currentValue,
                 initial_amount
                 )
@@ -46,10 +48,13 @@ const BudgetsTable = () => {
                     if(percentage>100){
                         return "100%"
                     } else{
-                        return percentage+"%"
+                        return Math.round(percentage)+"%"
                     }
                 }
-               
+                const day_diff = new Date(element.dateFinished).getDate()-new Date().getDate()
+                const perdiem = (element.amount-sumWithInitial)/day_diff
+
+                
                 
                 return(
                     <div className={styles.card_horizontal} >
@@ -61,6 +66,9 @@ const BudgetsTable = () => {
                                 <p>
                                     Period: {new Date(element.dateCreated).toLocaleDateString() } - {new Date(element.dateFinished).toLocaleDateString() }
                                 </p>
+                                <p>
+                                    Category: {element.category}
+                                </p>
                             </div>
 
                             <h3 className={styles.budget_balance} >
@@ -69,7 +77,7 @@ const BudgetsTable = () => {
                         </div>
 
                         <div className={styles.bottom_container} >
-                            <p>You can spend X per day</p>
+                            <p>You can spend {perdiem} per day</p>
                             <div className='progress'>
                                 <div className='progress-bar' role= 'progressbar' style={{width: percentage_choice(), ariaValuenow: "25"}}>
                                     {percentage_choice()}

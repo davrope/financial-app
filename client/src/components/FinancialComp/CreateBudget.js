@@ -18,6 +18,8 @@ const CreateBudget = () => {
     
   })
 
+  console.log(budgetValues)
+
   const handleInputChange= (event) =>{
     setbudgetValues({
       ...budgetValues,

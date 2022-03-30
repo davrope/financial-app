@@ -10,7 +10,7 @@ module.exports = app=>{
         const budget = new Budget({
             title,
             amount, 
-            dateCreated: new Date(),
+            dateCreated,
             dateFinished,
             category,
             // balanceBudget to define!!!!
