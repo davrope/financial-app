@@ -1,5 +1,5 @@
 import React from 'react';
-import {VictoryChart, VictoryArea} from 'victory'
+import {VictoryChart, VictoryArea, VictoryLine} from 'victory'
 import { useSelector } from 'react-redux';
 
 
@@ -43,13 +43,19 @@ const TimePlot = (props) => {
 
   return (
     <VictoryChart 
-      width={400} 
-      height={400} 
+      width={1080} 
+      height={720} 
+      padding= {{top:40, bottom:60, left: 80, right:80}}
     //   scale={{ x: discontinuousScale }}
     >
-      <VictoryArea 
+      {/* <VictoryArea 
         data={data} 
         style={{data: { fill: 'lightblue', stroke: 'teal' }}} 
+      /> */}
+
+      <VictoryLine
+        data= {data}
+        // style = {{data: {fill}}}
       />
     </VictoryChart>
   )

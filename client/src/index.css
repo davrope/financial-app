@@ -24,14 +24,14 @@ main {
 }
 
 .info-title{
-    color:#333;
+    color:#080708;
     font-size: 2.5rem;
     font-weight: bolder;
     margin-bottom:24px;
 }
 
 .info-subtitle{
-    color:#333;
+    color:#080708;
     font-size: 1rem;
     margin-bottom: 24px;
 }
@@ -53,7 +53,7 @@ main {
 }
 
 .section-title{
-    color: #333;
+    color: #080708;
     font-weight: bold;
     text-align: center;
     margin-bottom: 50px;
@@ -99,7 +99,7 @@ input[type=text], input[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #F8F4F9;
     box-sizing: border-box;
     
   }
@@ -107,7 +107,7 @@ input[type=text], input[type=password] {
 .login-button{
     border:none;
     border-radius: 20px;
-    color:#333;
+    color:#080708;
     background-color: #fb8c00;
     font-weight: bold;
     padding: 12px 24px 12px 24px;
@@ -137,7 +137,7 @@ input[type=text], input[type=password] {
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: 1px solid #F8F4F9;
         box-sizing: border-box;
         
       }
@@ -150,8 +150,8 @@ input[type=text], input[type=password] {
 /* Dashboard elements */
 
 .dashboard-plot{
-    max-width: 50%;
-    max-height: 10%;
+    max-width: 100vh;
+    max-height: 100vh;
     margin-right: auto;
     margin-left: auto;
 }
@@ -161,11 +161,11 @@ input[type=text], input[type=password] {
 }
 
 .current-month{
-    color: #333;
+    color: #080708;
 }
 
 .balance{
-    color:#333
+    color:#080708
 }
 
 .dashboard-header{
@@ -177,10 +177,15 @@ input[type=text], input[type=password] {
     border-radius: 20%;
     padding: 10px 5px 10px 5px;
     
+    
 }
 .button-dashboard{
     font-size: 1.2rem;
-    border-right: black;
+    width: 120px;
+    border-right: #080708;
+    background-color: #FDCA40;
+    border-color: white;
+    box-shadow: inset;
 
 }
 
@@ -190,14 +195,34 @@ input[type=text], input[type=password] {
 	height: 42px;
 	line-height: 42px;
 	vertical-align: middle;
-	background: #e53935;
+	background: #FDCA40;
 	border-radius: 50%;
 	border: none;
 	box-shadow: 0 2px 4px rgba(0,0,0,.2);
 	text-align: center;
     justify-items: center;
     font-size: 2.5rem;
-    color:white;
+    color:#080708;
+    /* color:#F8F4F9; */
     cursor: pointer
 }
 
+.previous_button{
+    
+    color: #080708;
+    border-radius: 100%;
+    font-size: 2rem;
+    border-width: 0px;
+    background-color: white;
+
+}
+
+.next_button{
+    
+    color: #080708;
+    border-radius: 100%;
+    font-size: 2rem;
+    border-width: 0px;
+    background-color: white;
+
+}

@@ -25,12 +25,12 @@ const Dashboard = () => {
     switch(button.target.id){
       case "previousMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
-        console.log("left")
+        
         
         break
       case "nextMonth":
         setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
-        console.log("right")
+        
         
     }
   }
@@ -76,9 +76,16 @@ const Dashboard = () => {
     <div className='dashboard-container'>
       <section className='dashboard-header'>
         <h3 className='current-month'>
-          <IoMdArrowDropleft type='button' id = "previousMonth" onClick={handleMonth}/>
+          <button className='previous_button' type='button' id = "previousMonth" onClick={handleMonth}>
+            &#8249;
+          </button>
+          
+          
           {display_month}
-          <IoMdArrowDropright type='button' id = "nextMonth" onClick={handleMonth}/>
+          <button className='next_button'type='button' id = "nextMonth" onClick={handleMonth}>
+            &#8250;
+          </button>
+          
         </h3>
         <h3 className='balance'>
           Your balance: 
@@ -106,6 +113,8 @@ const Dashboard = () => {
           Budgets
         </button>
       </div>
+      
+
       <LinkRouter className='FAB-transaction' to = {"/create-" + view}>
           <IoIosAdd/>
       </LinkRouter>

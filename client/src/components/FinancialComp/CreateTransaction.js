@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 import { useDispatch } from 'react-redux';
 // import { submitTransaction } from '../../actions';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const CreateTransaction = () => {
@@ -18,6 +19,14 @@ const CreateTransaction = () => {
     category:'Home',
     typeTransaction:'expenses'
   })
+  
+  useEffect(() => {
+    if (formValues.typeTransaction == 'income'){
+      setformValues({...formValues, category:'Salary'})
+    }else{
+      setformValues({...formValues, category:'Home'})
+    }
+  }, [formValues.typeTransaction])
 
   const handleInputChange = (event) =>{
     setformValues({
@@ -25,7 +34,7 @@ const CreateTransaction = () => {
       [event.target.name]: event.target.value
     })
   }
-  
+  console.log(formValues)
   
   const categoriesOptions = ()=>{
     switch(formValues.typeTransaction){
@@ -39,6 +48,8 @@ const CreateTransaction = () => {
         )
         
       case 'income':
+        // setformValues({...formValues, category:'Salary'})
+        
         return(
           <>
             <option value="Salary">Salary</option>
@@ -49,6 +60,10 @@ const CreateTransaction = () => {
     }
 
   }
+
+
+
+  
 
   const handleInputType = (event)=>{
 

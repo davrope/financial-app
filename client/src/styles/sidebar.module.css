@@ -1,5 +1,5 @@
 .wrapper.icon{
-    color:white;
+    color:#f8f4f9;
 }
 
 .menu{
@@ -20,7 +20,7 @@
     text-decoration: none;
     list-style: none;
     transition: 0.2s ease-in-out;
-    color: blueviolet;
+    color: #3d3b8e;
     cursor: pointer;
 
 
@@ -33,12 +33,12 @@
 }
 
 .linkS:hover{
-    color:green;
+    color:#3d3b8e;
     transition: 0.2s ease-in-out;
 }
 
 .closeIcon{
-    color:white
+    color:#f8f4f9
 }
 
 .icon{

@@ -42,8 +42,8 @@ const TransactionsTable = (props) => {
                 
                 return(
                     <>
-                        <tr key={element._id}>
-                            <td>{element.title} </td>
+                        <tr key={element._id} scope = 'row'>
+                            <td >{element.title} </td>
                             <td>{element.amount} </td>
                             <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
                             <td>{element.category} </td>
@@ -68,13 +68,13 @@ const TransactionsTable = (props) => {
   return (
     <div>
         <h2>Transactions</h2>
-        <table className= {style.transactionTable}>
+        <table className= 'table'>
             <tbody>
                 <tr key = "headers_expenses">
-                    <th>Transaction</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Category</th>
+                    <th scope='col'>Transaction</th>
+                    <th scope='col'>Amount</th>
+                    <th scope='col'>Date</th>
+                    <th scope='col'>Category</th>
                 </tr>
                 {RenderTransactions()}
                 

@@ -3,8 +3,12 @@
     border-style: groove;
     max-width: 50%;
     display: grid;
+    padding: 1rem 2rem 1rem 2rem;
+    /* padding-top: 1rem; */
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
 }
 
 .top_container{
