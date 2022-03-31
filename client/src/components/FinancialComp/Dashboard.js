@@ -17,8 +17,8 @@ const Dashboard = () => {
 
 
   const current_month = dashboardDate.toLocaleDateString('default', {month: 'long'})
-  const display_month = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+dashboardDate.getFullYear()
-
+  // const display_month = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+dashboardDate.getFullYear()
+  const display_month = current_month.toUpperCase() + ', ' + dashboardDate.getFullYear();
   
   const handleMonth =(button)=>{
 

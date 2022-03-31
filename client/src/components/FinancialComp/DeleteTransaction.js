@@ -26,12 +26,13 @@ const DeleteTransaction = () => {
         return(
             <React.Fragment>
                 <button
+                    className='btn btn-danger'
                     onClick={()=>onDelete(id)}
-                    
+                    style = {{marginRight:'0.5rem'}}
                 >
                     Delete
                 </button>
-                <Link to="/dashboard" >
+                <Link to="/dashboard" className='btn btn-secondary' >
                     Cancel
                 </Link>
             </React.Fragment>

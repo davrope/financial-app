@@ -4,7 +4,7 @@ import {deleteTransaction, fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom'
 import style from '../../styles/table.module.css'
-import {ImCross} from 'react-icons/im'
+import {BsTrash}from 'react-icons/bs'
 
 
 
@@ -48,11 +48,14 @@ const TransactionsTable = (props) => {
                             <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
                             <td>{element.category} </td>
                             {/* <button on onClick={handleDelete(element)}>Borrar</button> */}
-                            <Link
-                                to={`/transactions/delete/${element._id}`}
-                            >
-                                <ImCross/>
-                            </Link>
+                            <td>
+                                <Link style={{color:'gray'}}
+                                    to={`/transactions/delete/${element._id}`}
+                                >
+                                    <BsTrash/>
+                                </Link>
+                            </td>
+
                             
                         </tr> 
                         
@@ -75,6 +78,7 @@ const TransactionsTable = (props) => {
                     <th scope='col'>Amount</th>
                     <th scope='col'>Date</th>
                     <th scope='col'>Category</th>
+                    <th scope='col'>Delete</th>
                 </tr>
                 {RenderTransactions()}
                 

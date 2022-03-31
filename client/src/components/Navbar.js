@@ -3,6 +3,7 @@ import {Link as LinkRouter} from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
 import {Link as LinkScroll} from 'react-scroll';
 import style from '../styles/navbar.module.css';
+import tangerineLogo from '../img/logotang.png'
 
 import { useSelector } from 'react-redux';
 
@@ -47,7 +48,11 @@ const Navbar = ({toggle}) => {
     <nav className={style.navMain}>
       <nav className={style.navContainer}>
         <LinkRouter className={style.navLogo} to ="/">
-          <h2>Logo</h2>
+          {/* <h2>Logo</h2> */}
+          <img 
+            className='logo'
+            src= {tangerineLogo} />
+          
         </LinkRouter>
 
 
