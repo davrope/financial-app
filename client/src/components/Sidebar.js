@@ -45,11 +45,7 @@ const Sidebar = ({isOpen, toggle}) => {
         <FaTimes className={styles.closeIcon}/>
       </div>
       <div className={styles.wrapper}>
-        {/* <ul className={styles.menu}>
-          <LinkScroll className = {styles.linkS} to ="about" onClick= {toggle}>
-            About
-          </LinkScroll>
-        </ul> */}
+
         {renderAuth()}
       </div>
     </SidebarContainer>

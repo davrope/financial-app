@@ -52,7 +52,27 @@ const BudgetsTable = () => {
                     }
                 }
                 const day_diff = new Date(element.dateFinished).getDate()-new Date().getDate()
-                const perdiem = (element.amount-sumWithInitial)/day_diff
+
+                const spendPerDay =()=>{
+                    const perdiem = (element.amount-sumWithInitial)/day_diff
+
+                    if(perdiem>0){
+                        return perdiem
+                    } else if(perdiem<0){
+                        return 0
+                    } else{
+                        return element.amount-sumWithInitial
+                    }
+                }
+
+                const renderBudgetMessage =()=>{
+                    if(day_diff<0){
+                        return (<p style={{color:'red'}}>This budget has expired!</p> )
+                    }else{
+                        return (<p>You can spend {spendPerDay()} per day</p>)
+                    }
+                }
+                
 
                 
                 
@@ -77,7 +97,7 @@ const BudgetsTable = () => {
                         </div>
 
                         <div className={styles.bottom_container} >
-                            <p>You can spend {perdiem} per day</p>
+                            {renderBudgetMessage()}
                             <div className='progress'>
                                 <div className='progress-bar' role= 'progressbar' style={{width: percentage_choice(), ariaValuenow: "25"}}>
                                     {percentage_choice()}
