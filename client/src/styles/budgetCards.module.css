@@ -3,17 +3,18 @@
     border-style: groove;
     max-width:100%;
     display: grid;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 0rem 1rem 0rem;
     /* padding-top: 1rem; */
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
     margin-bottom: 1.5rem;
+    width: 600px;
 }
 
 .top_container{
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, auto) 30px;
 }
 
 .bottom_container{
@@ -35,4 +36,15 @@
         margin-left: 15px;
         margin-right: 15px;
     }
+}
+
+.budget_delete{
+    width: 30px;
+    height: 30px;
+    float: right;
+    background-color: white;
+    border: none;
+    color: gray;
+    
+    
 }

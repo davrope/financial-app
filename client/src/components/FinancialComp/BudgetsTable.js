@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import {fetchBudgets } from '../../actions';
 import {useSelector } from 'react-redux';
 import styles from '../../styles/budgetCards.module.css'
+import {BsTrash}from 'react-icons/bs'
+import {Link} from 'react-router-dom';
 
 const BudgetsTable = () => {
 
@@ -90,10 +92,13 @@ const BudgetsTable = () => {
                                     Category: {element.category}
                                 </p>
                             </div>
-
-                            <h3 className={styles.budget_balance} >
-                               {sumWithInitial} /{element.amount}
-                            </h3>
+                                <h3 className={styles.budget_balance} >
+                                {sumWithInitial} /{element.amount}
+                                </h3>
+                                <Link className={styles.budget_delete}  to={`/budgets/delete/${element._id}`}>
+                                    <BsTrash/>
+                                </Link>
+                           
                         </div>
 
                         <div className={styles.bottom_container} >

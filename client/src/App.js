@@ -17,6 +17,7 @@ import Dashboard from './components/FinancialComp/Dashboard';
 import CreateTransaction from './components/FinancialComp/CreateTransaction';
 import CreateBudget from './components/FinancialComp/CreateBudget';
 import DeleteTransaction from './components/FinancialComp/DeleteTransaction';
+import DeleteBudget from './components/FinancialComp/DeleteBudget';
 
 
 
@@ -42,6 +43,7 @@ const App = () => {
         <Route path = '/create-transaction' element = {<CreateTransaction/>}/>
         <Route path = '/create-budget' element = {<CreateBudget/>}/>
         <Route path = '/transactions/delete/:id' element = {<DeleteTransaction/>}/>
+        <Route path = '/budgets/delete/:id' element = {<DeleteBudget/>}/>
       </Routes>
       
     </Router>
