@@ -48,7 +48,6 @@ const Navbar = ({toggle}) => {
     <nav className={style.navMain}>
       <nav className={style.navContainer}>
         <LinkRouter className={style.navLogo} to ="/">
-          {/* <h2>Logo</h2> */}
           <img 
             className='logo'
             src= {tangerineLogo} />

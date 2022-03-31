@@ -54,6 +54,7 @@
 
 .navItem{
     height: 80px;
+    color:#F8F4F9;
 }
 
 .navLinkS{
@@ -94,8 +95,14 @@
         transform: translate (-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
-        
+        color: #F8F4F9;
+        margin-right: 10px;
+
         margin-top: 25px;
+    }
+
+    .navLogo{
+        margin-left: 0px;
     }
 
     .navMenu{

@@ -8,6 +8,7 @@
     grid-template-rows: repeat(6, 80px);
     text-align: center;
     padding-left: 0%;
+    color:#f8f4f9;
     /* width: 100% */
     /* object-fit: contain; */
 }
@@ -20,8 +21,11 @@
     text-decoration: none;
     list-style: none;
     transition: 0.2s ease-in-out;
-    color: #3d3b8e;
+    /* color: #3d3b8e; */
     cursor: pointer;
+    color:#f8f4f9;
+    
+
 
 
 }
