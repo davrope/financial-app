@@ -1,13 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {Link as LinkRouter} from 'react-router-dom';
 import TransactionsTable from './TransactionsTable';
-
-// import {fetchTransactions } from '../../actions';
-// import { useDispatch } from 'react-redux';
 import {useSelector } from 'react-redux';
 import BudgetsTable from './BudgetsTable';
 import TimePlot from './TimePlot';
-import {IoMdArrowDropleft,IoMdArrowDropright, IoIosAdd } from 'react-icons/io'
+import {IoIosAdd } from 'react-icons/io'
 
 const Dashboard = () => {
   const [dashboardDate, setDashboardDate] = useState(new Date())
@@ -17,7 +14,7 @@ const Dashboard = () => {
 
 
   const current_month = dashboardDate.toLocaleDateString('default', {month: 'long'})
-  // const display_month = current_month.charAt(0).toUpperCase() + current_month.slice(1) +', '+dashboardDate.getFullYear()
+
   const display_month = current_month.toUpperCase() + ', ' + dashboardDate.getFullYear();
   
   const handleMonth =(button)=>{
@@ -104,6 +101,7 @@ const Dashboard = () => {
       <section className='dashboard-table'>
         {renderTable()}
       </section>
+
 
       <div className='buttons-dashboard-container'>
         <button className='button-dashboard'onClick={handleTransactions} >

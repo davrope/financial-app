@@ -93,7 +93,7 @@ const BudgetsTable = () => {
                                 </p>
                             </div>
                                 <h3 className={styles.budget_balance} >
-                                {sumWithInitial} /{element.amount}
+                                    {sumWithInitial} /{element.amount}
                                 </h3>
                                 <Link className={styles.budget_delete}  to={`/budgets/delete/${element._id}`}>
                                     <BsTrash/>

@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import {deleteTransaction, fetchTransactions } from '../../actions';
+import {fetchTransactions } from '../../actions';
 import { connect, useSelector } from 'react-redux';
-import {Link, useNavigate} from 'react-router-dom'
-import style from '../../styles/table.module.css'
+import {Link} from 'react-router-dom'
 import {BsTrash}from 'react-icons/bs'
-
+import {exportTableToCSV} from '../../utils/utils.js'
 
 
 const TransactionsTable = (props) => {
 
     const month = props.selectedDate.getMonth()
-    const navigate = useNavigate();
+
 
     const dispatch = useDispatch();
 
@@ -22,11 +21,6 @@ const TransactionsTable = (props) => {
         
     }, [])
 
-    // function handleDelete(element){
-    //     // dispatch(deleteTransaction(element._id))
-    //     // navigate('/dashboard')
-    //     console.log(element._id)
-    // }
 
     
     const transactions = useSelector((state)=>state.transactions)
@@ -47,7 +41,7 @@ const TransactionsTable = (props) => {
                             <td>{element.amount} </td>
                             <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
                             <td>{element.category} </td>
-                            {/* <button on onClick={handleDelete(element)}>Borrar</button> */}
+                            
                             <td>
                                 <Link style={{color:'gray'}}
                                     to={`/transactions/delete/${element._id}`}
@@ -87,6 +81,9 @@ const TransactionsTable = (props) => {
             
             
         </table>
+        <button onClick= {()=>exportTableToCSV('transactions.csv')}>
+            Download (CSV)
+        </button>
     </div>
   )
 }
