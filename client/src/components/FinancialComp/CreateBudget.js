@@ -3,7 +3,7 @@ import * as actions from '../../actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {Link as LinkRouter} from 'react-router-dom';
-
+import style from '../../styles/create-transaction.module.css';
 
 const CreateBudget = () => {
   const dispatch = useDispatch();
@@ -35,39 +35,47 @@ const CreateBudget = () => {
     navigate('/dashboard')
   }
 
-
   return (
-    <div>
-      New Budget
-      <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input type='text' name = "title" onChange={handleInputChange} />
+    <div className={style.container}>
+       <h3 style={{marginTop:'15px'}}><b>New Budget</b></h3>
+      <form onSubmit={handleSubmit} className={style.formdiv}>
+        <div className={style.row}>
+          <label>Name:</label>
+          <input type='text' className={style.width100} name = "title" onChange={handleInputChange} />
+        </div>
+        <div className={style.row}>
+          <label className={style.label}>Category: </label>
+              <select id = "category" name = "category" onChange={handleInputChange}>
+                  <option value = "Home">Home</option>
+                  <option value = "Food">Food</option>
+                  <option value = "Laundry">Laundry</option>
+              </select>
+        </div>
+        <div className={style.col50}>
+          <label>Start date</label>
+          <input type = "date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
+        </div>
+        <div className={style.col50}>
+          <label>End date</label>
+          <input type = "date" id = "transaction_date_finish" name = "dateFinished" onChange={handleInputChange}/>
+        </div>
+        <label>Total</label>
+        <input className={style.width100} type = "number" id= "total_amount" placeholder='Total budget' name='amount' onChange={handleInputChange}/>
+        <div className='mb-3 form-check' >
+          <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}} to = '/user'>
+            Cancel
+          </LinkRouter>
 
-        <label>Category:</label>
-            <select id = "category" name = "category" onChange={handleInputChange}>
-                <option value = "Home">Home</option>
-                <option value = "Food">Food</option>
-                <option value = "Laundry">Laundry</option>
-            </select>
-        <label>Start date</label>
-        <input type = "date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
-
-        <label>End date</label>
-        <input type = "date" id = "transaction_date_finish" name = "dateFinished" onChange={handleInputChange}/>
-
-        <input type = "number" id= "total_amount" placeholder='Total budget' name='amount' onChange={handleInputChange}/>
-
+          <button className='btn btn-primary' type = "submit">
+            Submit
+          </button>
+        </div>  
         
-        <LinkRouter to = '/user'>
-          Cancel
-        </LinkRouter>
 
-        <button type = "submit">
-          Submit
-        </button>
       </form>
     </div>
   )
+
 }
 
 export default CreateBudget

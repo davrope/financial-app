@@ -133,7 +133,7 @@ const CreateTransaction = () => {
             <input className={style.width100} type = "number" id= "total_transaction" placeholder='Total' name='amount' onChange={handleInputType}/>
             <br></br>
             <div className='mb-3 form-check' >
-              <LinkRouter className='btn btn-danger' style={{margiRight: '10px'}}  to = '/user' >
+              <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}}  to = '/user' >
                 Cancel
               </LinkRouter>
 
