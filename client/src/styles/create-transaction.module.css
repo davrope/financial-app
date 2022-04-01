@@ -1,3 +1,39 @@
 .container{
     text-align: center;
 }
+
+.formdiv{
+    margin-left: auto;
+    margin-right: auto;
+    height: 760px;
+    width: 360px;
+}
+
+.row{
+    max-width: 360px;
+}
+
+.width100{
+    /* width: 100%; */
+    width: 360px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.selection{
+    margin-right: auto;
+    margin-left: auto;
+    width: 101px;
+    
+}
+
+.col50{
+    width: 50%;
+    margin-top: 5px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+.label{
+    width: 70px;
+}

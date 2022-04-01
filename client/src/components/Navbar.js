@@ -21,7 +21,7 @@ const Navbar = ({toggle}) => {
         return(
           <ul className={style.navMenu}>
             <li className={style.navItem}>
-              <LinkScroll to= 'about' className={style.navLinkS}>About</LinkScroll>
+              <LinkScroll to= 'about' className={style.navLinkS} href="/about">About</LinkScroll>
             </li>
             <li className={style.navItem}>
               <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
@@ -50,7 +50,9 @@ const Navbar = ({toggle}) => {
         <LinkRouter className={style.navLogo} to ="/">
           <img 
             className='logo'
-            src= {tangerineLogo} />
+            src= {tangerineLogo} 
+            alt= 'Tangerin app logo'
+            />
           
         </LinkRouter>
 

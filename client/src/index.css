@@ -2,6 +2,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+label{
+    font-weight: bold;
+}
+
 main {
     max-width: 1200px;
     margin:0 auto;
@@ -94,7 +98,7 @@ main {
     font-weight: bolder;
 }
 
-input[type=text], input[type=password] {
+/* input[type=text], input[type=password] {
     width: 640px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -102,7 +106,7 @@ input[type=text], input[type=password] {
     border: 1px solid #F8F4F9;
     box-sizing: border-box;
     
-  }
+  } */
 
 .login-button{
     border:none;
@@ -135,7 +139,7 @@ input[type=text], input[type=password] {
 
 
 @media screen and (max-width:640px){
-    input[type=text], input[type=password] {
+    /* input[type=text], input[type=password] {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -143,7 +147,7 @@ input[type=text], input[type=password] {
         border: 1px solid #F8F4F9;
         box-sizing: border-box;
         
-      }
+      } */
 
       .dashboard-table{
           max-width: 100%;
@@ -250,6 +254,7 @@ input[type=text], input[type=password] {
 .logo{
     width: fit-content;
     height:80px;
+    
 }
 
 

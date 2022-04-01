@@ -5,16 +5,16 @@ export function exportTableToCSV(filename) {
     
     for (let i = 0; i < rows.length; i++) {
         let row = [], cols = rows[i].querySelectorAll("td, th");
-        console.log(row)
+        
         
         for (let j = 0; j < cols.length-1; j++) 
             row.push(cols[j].innerText);
-            console.log(cols)
+            
         
         csv.push(row.join(","));        
     }
 
-    console.log(rows.length)
+
 
     // Download CSV file
     downloadCSV(csv.join("\n"), filename);
