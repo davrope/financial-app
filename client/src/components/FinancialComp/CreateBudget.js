@@ -62,7 +62,7 @@ const CreateBudget = () => {
         <label>Total</label>
         <input className={style.width100} type = "number" id= "total_amount" placeholder='Total budget' name='amount' onChange={handleInputChange}/>
         <div className='mb-3 form-check' >
-          <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}} to = '/user'>
+          <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}} to = '/dashboard'>
             Cancel
           </LinkRouter>
 

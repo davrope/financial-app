@@ -39,7 +39,7 @@ const TransactionsTable = (props) => {
                         <tr key={element._id} scope = 'row'>
                             <td >{element.title} </td>
                             <td>{element.amount} </td>
-                            <td>{new Date(element.dateCreated).toLocaleDateString()} </td>
+                            <td>{new Date(element.dateCreated.replace(/-/g, '\/').replace(/T.+/, '')).toLocaleDateString()} </td>
                             <td>{element.category} </td>
                             
                             <td>
@@ -81,7 +81,7 @@ const TransactionsTable = (props) => {
             
             
         </table>
-        <button onClick= {()=>exportTableToCSV('transactions.csv')}>
+        <button className='btn btn-secondary' onClick= {()=>exportTableToCSV('transactions.csv')}>
             Download (CSV)
         </button>
     </div>

@@ -86,7 +86,7 @@ const BudgetsTable = () => {
                                     {element.title}
                                 </h2>
                                 <p>
-                                    Period: {new Date(element.dateCreated).toLocaleDateString() } - {new Date(element.dateFinished).toLocaleDateString() }
+                                    Period: {new Date(element.dateCreated.replace(/-/g, '\/').replace(/T.+/, '')).toLocaleDateString() } - {new Date(element.dateFinished.replace(/-/g, '\/').replace(/T.+/, '')).toLocaleDateString() }
                                 </p>
                                 <p>
                                     Category: {element.category}

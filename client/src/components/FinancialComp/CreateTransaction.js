@@ -127,13 +127,13 @@ const CreateTransaction = () => {
             <br></br>
 
             <label>Date</label>
-            <input type = "date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
+            <input  type="date" id = "transaction_date" name = "dateCreated" onChange={handleInputChange}/>
             <br></br>
             {/* Check how to hide the spin arrows for number input */}
             <input className={style.width100} type = "number" id= "total_transaction" placeholder='Total' name='amount' onChange={handleInputType}/>
             <br></br>
             <div className='mb-3 form-check' >
-              <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}}  to = '/user' >
+              <LinkRouter className='btn btn-danger' style={{marginRight: '10px'}}  to = '/dashboard' >
                 Cancel
               </LinkRouter>
 
