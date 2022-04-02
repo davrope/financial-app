@@ -11,25 +11,35 @@ const Dashboard = () => {
 
   const [view, setView] = useState('transaction')
   const transactions = useSelector((state)=>state.transactions)
-
+  
+  console.log(dashboardDate)
 
   const current_month = dashboardDate.toLocaleDateString('default', {month: 'long'})
 
   const display_month = current_month.toUpperCase() + ', ' + dashboardDate.getFullYear();
   
   const handleMonth =(button)=>{
+    console.log(button.target.id)
 
-    switch(button.target.id){
-      case "previousMonth":
-        setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
-        
-        
-        break
-      case "nextMonth":
-        setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
-        
-        
+    if(button.target.id == "previousMonth"){
+      setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
+    }else{
+      console.log(dashboardDate.getMonth()+1)
+      setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
+      
     }
+
+    // switch(button.target.id){
+    //   case "previousMonth":
+    //     setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()-1)))
+        
+        
+    //     break
+    //   case "nextMonth":
+    //     setDashboardDate(new Date(dashboardDate.setMonth(dashboardDate.getMonth()+1)))
+        
+        
+    // }
   }
   const handleBudget=()=>{
     setView('budget')
@@ -104,12 +114,16 @@ const Dashboard = () => {
 
 
       <div className='buttons-dashboard-container'>
-        <button className='button-dashboard'onClick={handleTransactions} >
-          Transactions
-        </button>
-        <button className='button-dashboard' onClick={handleBudget}>
-          Budgets
-        </button>
+        {/* <button className='button-dashboard'onClick={handleTransactions} > */}
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <button className='btn btn-secondary' style={{backgroundColor:'#fb8c00', borderColor:'#fb8c00', width: '120px'}} onClick={handleTransactions}>
+            Transactions
+          </button>
+          <button className='btn btn-secondary' style={{backgroundColor:'#fb8c00', borderColor:'#fb8c00', width: '120px'}} onClick={handleBudget}>
+            Budgets
+          </button>
+        </div>
+
       </div>
       
 

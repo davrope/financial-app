@@ -14,7 +14,7 @@ const About = () => {
               Create a budget
             </h4>
             <p>
-              We have the best tools so you can create a budget based on your income and goals.
+              We are sure you have <b>BIG</b> plans to accomplish. Creating budgets will help you meet your financial goals in the short and long term.
             </p>
           </div>
         </div>
@@ -26,7 +26,7 @@ const About = () => {
               Track your expenses
             </h4>
             <p>
-              Split your expenses in different categories so you can notice if you are reaching your financial goals.
+              Split your expenses in different categories so you can notice if you are reaching your financial goals!
             </p>
           </div>
         </div>
@@ -38,7 +38,8 @@ const About = () => {
               Export your data
             </h4>
             <p>
-              If you want to use third party tools to analyze your data, you can easily export your information.
+              Data is everywhere, and if you want to use third party tools to analyze your data, you can easily export all your information.
+              Whenever you want.
             </p>
           </div>
         </div>
