@@ -4,6 +4,7 @@ import {FaBars} from 'react-icons/fa';
 import {Link as LinkScroll} from 'react-scroll';
 import style from '../styles/navbar.module.css';
 import tangerineLogo from '../img/logotang.png'
+import {FcGoogle} from 'react-icons/fc';
 
 import { useSelector } from 'react-redux';
 
@@ -24,7 +25,10 @@ const Navbar = ({toggle}) => {
               <LinkScroll to= 'about' className={style.navLinkS} href="/about">About</LinkScroll>
             </li>
             <li className={style.navItem}>
-              <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>  
+              <a className='google log in' href = "/auth/google" key = "googlelogin">
+                <FcGoogle className='smedia-icon'/>
+              </a>
+              {/* <LinkRouter className={style.navLinkS} to= "/login">Login</LinkRouter>   */}
             </li>
         </ul>
 

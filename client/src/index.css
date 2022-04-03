@@ -190,6 +190,9 @@ main {
 
 .smedia-icon{
     font-size: 2rem;
+    margin-top: auto;
+    margin-bottom:auto;
+    height:100%
 }
 
 /* Dashboard elements */
