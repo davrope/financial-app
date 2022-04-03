@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import budget from '../img/budget.jpg';
+import expenses from '../img/expenses.jpg';
+import data from '../img/data.jpg';
 
 const About = () => {
   return (
@@ -8,7 +11,7 @@ const About = () => {
       </h2>
       <div className='cards-grid'>
         <div id='about' className='card'>
-          <img src="https://i.postimg.cc/zD21m9fG/hero.png" alt="Pasta with pomodoro sauce" className='about-img'/>
+          <img src={budget} alt="Human with a calculator" className='about-img'/>
           <div className='text-card-container'>
             <h4>
               Create a budget
@@ -20,7 +23,7 @@ const About = () => {
         </div>
 
         <div id='about' className='card'>
-          <img src="https://i.postimg.cc/zD21m9fG/hero.png" alt="Pasta with pomodoro sauce" className='about-img'/>
+          <img src={expenses} alt="Human analyzing a pie chart" className='about-img'/>
           <div className='text-card-container'>
             <h4>
               Track your expenses
@@ -32,7 +35,7 @@ const About = () => {
         </div>
 
         <div id='about' className='card'>
-          <img src="https://i.postimg.cc/zD21m9fG/hero.png" alt="Pasta with pomodoro sauce" className='about-img'/>
+          <img src={data} alt="Human with a book labeled as data" className='about-img'/>
           <div className='text-card-container'>
             <h4>
               Export your data

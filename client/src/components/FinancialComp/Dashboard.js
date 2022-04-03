@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [view, setView] = useState('transaction')
   const transactions = useSelector((state)=>state.transactions)
   
-  console.log(dashboardDate)
+  
 
   const current_month = dashboardDate.toLocaleDateString('default', {month: 'long'})
 
@@ -114,7 +114,7 @@ const Dashboard = () => {
 
 
       <div className='buttons-dashboard-container'>
-        {/* <button className='button-dashboard'onClick={handleTransactions} > */}
+        
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <button className='btn btn-secondary' style={{backgroundColor:'#fb8c00', borderColor:'#fb8c00', width: '120px'}} onClick={handleTransactions}>
             Transactions
